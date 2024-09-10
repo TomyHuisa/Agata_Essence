@@ -1,2 +1,2 @@
-# Project-AppCosmetics
-Data_Base|| Project of a Cosmetics App
+# Agata_Essence
+Data_Base|| Agata_Essence
