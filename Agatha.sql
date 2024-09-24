@@ -110,7 +110,7 @@ CREATE TABLE Employees (
 
 
 
-CREATE TABLE Countries (
+CREATE TABLE Location (
 
     id_country INTEGER PRIMARY KEY AUTOINCREMENT,
 
@@ -149,5 +149,70 @@ CREATE TABLE Home (
 	FOREIGN KEY (manager_id) REFERENCES Employees(id_employee),
 
 	FOREIGN KEY (country_id) REFERENCES Countries(id_country)
+
+);
+
+CREATE TABLE Magazine (
+
+    id_magazine INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    id_home INTEGER,
+
+    img_magazine VARCHAR,
+
+	products_name VARCHAR,
+
+    products_desc TEXT,
+    
+	id_products INTEGER,
+
+	img_products VARCHAR,
+
+	FOREIGN KEY (id_home) REFERENCES Home(id_home),
+
+	FOREIGN KEY (id_products) REFERENCES Products(id_products)
+
+);
+
+CREATE TABLE Products (
+
+    id_products INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    products_name VARCHAR,
+
+    products_cod INTEGER,
+
+	id_magazine INTEGER,
+
+	id_new_cart INTEGER,
+
+	FOREIGN KEY (id_products) REFERENCES Magazine(id_products),
+
+	FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine),
+
+    FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart)
+
+
+);
+
+
+CREATE TABLE New_Cart (
+
+    id_new_cart INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    first_name VARCHAR,
+
+    last_name VARCHAR,
+
+	email VARCHAR,
+
+	products_cod INTEGER,
+
+    delivery_date DATE,
+
+    id_home INTEGER,
+
+    FOREIGN KEY (id_home) REFERENCES Home(id_home)
+
 
 );
