@@ -19,13 +19,24 @@ CREATE TABLE Login (
     password VARCHAR(50),
     id_home INTEGER,
     FOREIGN KEY (id_register) REFERENCES Register(id_register),
-    FOREIGN KEY (id_home) REFERENCES Home(id_home),
-    FOREIGN KEY (id_employee) REFERENCES Employees(id_employee)
+    --ALTER TABLE Login
+    --ADD FOREIGN KEY (id_home) REFERENCES Home(id_home);
+    --ALTER TABLE Login
+    --ADD FOREIGN KEY (id_employee) REFERENCES Employees(id_employee);
 );
 
 
 
-CREATE TABLE Profiles (
+CREATE TABLE Jobs (
+    id_job INTEGER PRIMARY KEY AUTO_INCREMENT,
+    job_title    VARCHAR,
+    min_salary  INTEGER,
+    max_salary  INTEGER
+    FOREIGN KEY (id_login) REFERENCES Login (id_login)
+
+);
+
+CREATE TABLE Proffiles (
     id_profile INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_employee INTEGER,
     id_login    INTEGER,
@@ -38,18 +49,17 @@ CREATE TABLE Profiles (
     salary REAL,
 	manager_id INTEGER,
 	country_id INTEGER,
-	FOREIGN KEY (id_employee) REFERENCES Employees(id_employee),
-    FOREIGN KEY (id_login) REFERENCES Login (id_login)
+	--ALTER TABLE Proffiles
+    --ADD FOREIGN KEY (id_employee) REFERENCES Employees(id_employee);
+    FOREIGN KEY (id_job) REFERENCES Jobs(id_job),
+    FOREIGN KEY (id_login) REFERENCES Login(id_login)
 
 );
 
-CREATE TABLE Jobs (
-    id_job INTEGER PRIMARY KEY AUTO_INCREMENT,
-    job_title    VARCHAR,
-    min_salary  INTEGER,
-    max_salary  INTEGER
-    FOREIGN KEY (id_login) REFERENCES Login (id_login)
-
+CREATE TABLE Location (
+    id_location INTEGER PRIMARY KEY AUTO_INCREMENT,
+    location_name VARCHAR(50),
+    deparment VARCHAR(50)
 );
 
 CREATE TABLE Employees (
@@ -64,22 +74,12 @@ CREATE TABLE Employees (
     salary REAL,
 	manager_id INTEGER,
 	country_id INTEGER,
-	FOREIGN KEY (id_profile) REFERENCES Profiles(id_profile),
+	FOREIGN KEY (id_profile) REFERENCES Proffiles(id_profile),
 	FOREIGN KEY (manager_id) REFERENCES Employees(id_employee),
 	FOREIGN KEY (id_location) REFERENCES Location(id_location),
     FOREIGN KEY (id_job) REFERENCES Jobs(id_job)
 
 );
-
-
-
-CREATE TABLE Location (
-    id_location INTEGER PRIMARY KEY AUTO_INCREMENT,
-    location_name VARCHAR(50),
-    deparment VARCHAR(50)
-);
-
-
 
 CREATE TABLE Home (
     id_home INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -94,8 +94,10 @@ CREATE TABLE Home (
 	img_magazine VARCHAR(50),
 	id_magazine INTEGER,
 	FOREIGN KEY (id_login) REFERENCES Login(id_login),
-	FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart),
-	FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine)
+	--ALTER TABLE Home
+    --ADD FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart);
+	--ALTER TABLE Home
+    --ADD FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine);
 );
 
 CREATE TABLE Magazine (
@@ -107,7 +109,8 @@ CREATE TABLE Magazine (
 	id_products INTEGER,
 	img_products VARCHAR(50),
 	FOREIGN KEY (id_home) REFERENCES Home(id_home),
-	FOREIGN KEY (id_products) REFERENCES Products(id_products)
+	--ALTER TABLE Magazine
+    --ADD FOREIGN KEY (id_products) REFERENCES Products(id_products);
 );
 
 CREATE TABLE Products (
@@ -117,7 +120,8 @@ CREATE TABLE Products (
 	id_magazine INTEGER,
 	id_new_cart INTEGER,
 	FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine),
-    FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart)
+    --ALTER TABLE Products
+    --ADD FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart);
 );
 
 

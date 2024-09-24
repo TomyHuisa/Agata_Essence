@@ -223,3 +223,6 @@ CREATE TABLE New_Cart (
     FOREIGN KEY (id_home) REFERENCES Home(id_home)
 
 );
+
+ALTER TABLE nombre_tabla
+ADD columna tipo_dato restricciones;
