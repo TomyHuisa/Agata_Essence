@@ -42,6 +42,8 @@ CREATE TABLE Login (
 
     FOREIGN KEY (id_home) REFERENCES Home(id_home)
 
+    FOREIGN KEY (id_employee) REFERENCES Employees(id_employee),
+
 );
 
 
@@ -52,6 +54,8 @@ CREATE TABLE Profiles (
 
     id_employee INTEGER,
 
+    id_login    INTEGER,
+
     first_name TEXT,
 
 	last_name TEXT,
@@ -70,7 +74,9 @@ CREATE TABLE Profiles (
 
 	country_id INTEGER,
 
-	FOREIGN KEY (id_employee) REFERENCES Employees(id_employee)
+	FOREIGN KEY (id_employee) REFERENCES Employees(id_employee),
+
+    FOREIGN KEY (id_login) REFERENCES Login (id_login)
 
 );
 
@@ -80,7 +86,7 @@ CREATE TABLE Employees (
 
     id_employee INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    id_login INTEGER,
+    id_profile INTEGER,
 
     first_name TEXT,
 
@@ -100,11 +106,13 @@ CREATE TABLE Employees (
 
 	country_id INTEGER,
 
-	FOREIGN KEY (id_login) REFERENCES Login(id_login),
+	FOREIGN KEY (id_profile) REFERENCES Profiles(id_profile),
 
 	FOREIGN KEY (manager_id) REFERENCES Employees(id_employee),
 
-	FOREIGN KEY (country_id) REFERENCES Countries(id_country)
+	FOREIGN KEY (id_location) REFERENCES Location(id_location),
+
+    FOREIGN KEY (id_job) REFERENCES Jobs(id_job)
 
 );
 
@@ -112,11 +120,13 @@ CREATE TABLE Employees (
 
 CREATE TABLE Location (
 
-    id_country INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_location INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    country_name TEXT
+    location_name VARCHAR,
 
-);
+    deparment VARCHAR
+
+);º
 
 
 
@@ -146,9 +156,9 @@ CREATE TABLE Home (
 
 	FOREIGN KEY (id_login) REFERENCES Login(id_login),
 
-	FOREIGN KEY (manager_id) REFERENCES Employees(id_employee),
+	FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart),
 
-	FOREIGN KEY (country_id) REFERENCES Countries(id_country)
+	FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine)
 
 );
 
@@ -186,8 +196,6 @@ CREATE TABLE Products (
 
 	id_new_cart INTEGER,
 
-	FOREIGN KEY (id_products) REFERENCES Magazine(id_products),
-
 	FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine),
 
     FOREIGN KEY (id_new_cart) REFERENCES New_Cart(id_new_cart)
@@ -213,6 +221,5 @@ CREATE TABLE New_Cart (
     id_home INTEGER,
 
     FOREIGN KEY (id_home) REFERENCES Home(id_home)
-
 
 );
