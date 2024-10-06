@@ -17,3 +17,9 @@ CREATE TABLE Employees (
     FOREIGN KEY (id_job) REFERENCES Jobs(id_job)
 
 );
+
+INSERT INTO Jobs (id_employee, id_profile,id_location,first_name,last_name,email,employee_rank,phone_number,id_job,salary,manager_id,country_id)
+    VALUES  (100,10,1,'Jorge', 'Gutierez' ,'JGutierez@agathaessence.com','Silver',1145346901,1000,...,1000),
+            (101,11,2,'Sofia','Gimenez','SGimenez@agathaessence.com','Golden',1146457891,1001,...,1001),
+            (102,12,3,'Ruth','Juaniquina', 'RJuaniquina@agathaessence.com','Platinium',1145346903,1002,...,1002),
+            (103,13,4,'Perry','Gabilan', 'PGabilan@agathaessence.com','Diamond',1145346904,1003,...,1002);

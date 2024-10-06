@@ -12,8 +12,8 @@ CREATE TABLE Login (
     --ADD FOREIGN KEY (id_employee) REFERENCES Employees(id_employee);
 );
 
- INSERT INTO Proffiles(id_login, id_register, id_employee, email, employee_rank, phone_number)
-    VALUES  (1, 100, 10, 'Jorge', 'Gutierez', 'JGutierez@agathaessence.com', 'Silver', 1145346901),
-    (2, 101, 11, 'Sophia', 'Gimenez', 'SGimenez@agathaessence.com', 'Golden', 1145346902),
-    (3, 102, 12, 'Ruth', 'Juaniquina', 'RJuaniquina@agathaessence.com', 'Platinium', 1145346903),
-    (4, 103, 13, 'Perry', 'Gabilan', 'PGabilan@agathaessence.com', 'Diamond', 1145346904);
+ INSERT INTO Login (id_login, id_register, id_employee, email,password,id_home)
+    VALUES  (1, 100, 10, 'Jorge', 'Gutierez', 'JGutierez@agathaessence.com','JGutierez'1234,2000),
+            (2, 101, 11, 'Sophia', 'Gimenez', 'SGimenez@agathaessence.com','SGimenez'8910,2001),
+            (3, 102, 12, 'Ruth', 'Juaniquina', 'RJuaniquina@agathaessence.com', 'RJuaniquina'0542,2003),
+            (4, 103, 13, 'Perry', 'Gabilan', 'PGabilan@agathaessence.com','PGabilan'4562,2004 );
