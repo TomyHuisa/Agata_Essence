@@ -13,7 +13,7 @@ CREATE TABLE Login (
 );
 
  INSERT INTO Login (id_login, id_register, id_employee, email,password,id_home)
-    VALUES  (1, 100, 10, 'Jorge', 'Gutierez', 'JGutierez@agathaessence.com','JGutierez'1234,2000),
-            (2, 101, 11, 'Sophia', 'Gimenez', 'SGimenez@agathaessence.com','SGimenez'8910,2001),
-            (3, 102, 12, 'Ruth', 'Juaniquina', 'RJuaniquina@agathaessence.com', 'RJuaniquina'0542,2003),
-            (4, 103, 13, 'Perry', 'Gabilan', 'PGabilan@agathaessence.com','PGabilan'4562,2004 );
+    VALUES  (1, 100, 10, 'Jorge', 'Gutierez', 'JGutierez@agathaessence.com','JGutierez1234',2000),
+            (2, 101, 11, 'Sophia', 'Gimenez', 'SGimenez@agathaessence.com','SGimenez8910',2001),
+            (3, 102, 12, 'Ruth', 'Juaniquina', 'RJuaniquina@agathaessence.com', 'RJuaniquina0542',2003),
+            (4, 103, 13, 'Perry', 'Gabilan', 'PGabilan@agathaessence.com','PGabilan4562',2004 );
