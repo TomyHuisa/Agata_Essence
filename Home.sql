@@ -1,5 +1,5 @@
 CREATE TABLE Home (
-    id_home INTEGER PRIMARY KEY AUTO_INCREMENT,id_magazine INTEGER,
+    id_home INTEGER PRIMARY KEY AUTO_INCREMENT,
 	img_home VARCHAR(50),
 	id_magazine INTEGER,
 	img_magazine VARCHAR(50),
@@ -16,7 +16,7 @@ CREATE TABLE Home (
     --ADD FOREIGN KEY (id_magazine) REFERENCES Magazine(id_magazine);
 );
 
-INSERT INTO Jobs (id_home, id_login,id_new_cart,id_magazine,id_profile)
+INSERT INTO Home (id_home, id_login,id_new_cart,id_magazine,id_profile)
     VALUES  (2000,1,4000,1000,10),
             (2002,2,4001,1001,11),
             (2003,3,4003,1002,12),
