@@ -7,13 +7,14 @@ CREATE TABLE Employees (
 	employee_rank TEXT,
     phone_number INTEGER,
 	id_job INTEGER,
+    id_rank INTEGER,
     salary REAL,
 	manager_id INTEGER,
     id_location INTEGER,
-	FOREIGN KEY (id_profile) REFERENCES Proffiles(id_profile),
 	FOREIGN KEY (manager_id) REFERENCES Employees(id_employee),
 	FOREIGN KEY (id_location) REFERENCES Location(id_location),
-    FOREIGN KEY (id_job) REFERENCES Jobs(id_job)
+    FOREIGN KEY (id_job) REFERENCES Jobs(id_job),
+    FOREIGN KEY (id_rank) REFERENCES Ranks(id_rank)
 );
 
 INSERT INTO Employees (id_employee, id_profile,id_location,first_name,last_name,email,employee_rank,phone_number,id_job,salary)
