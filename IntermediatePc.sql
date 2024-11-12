@@ -1,14 +1,15 @@
-CREATE TABLE PC (
-    id_pc INTEGER PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE PCom (
+    id_pcom INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_products INTEGER,
-    id_cart INTEGER,
+    id_sold INTEGER,
     cant_products INTEGER,
-    FOREIGN KEY (id_cart) REFERENCES Cart(id_cart),
+    price_products INTEGER,
+    FOREIGN KEY (id_sold) REFERENCES Sold(id_sold),
     FOREIGN KEY (id_products) REFERENCES Products(id_products)
 );
 
-INSERT INTO PC(id_pc, id_products, id_cart, cant_products)
-    VALUES  (20, 3000, 10, 8),
-            (21, 3000, 11, 6),
-            (22, 3000, 12, 2),
-            (23, 3000, 13, 3);
+INSERT INTO PCom(id_pcom, id_products, id_sold, cant_products, price_products)
+    VALUES  (20, 3000, 40, 8, 45000),
+            (21, 3000, 41, 6, 64000),
+            (22, 3000, 42, 2, 14000),
+            (23, 3000, 43, 3, 47000);
