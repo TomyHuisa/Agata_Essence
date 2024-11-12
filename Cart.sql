@@ -1,15 +1,15 @@
 CREATE TABLE Cart (
     id_cart INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_user INTEGER,
+    id_users INTEGER,
     price_products INTEGER,
     date_cart DATE,
-    id_sold INTEGER
-    --ALTER TABLE Cart
-    --ADD FOREIGN KEY (id_user) REFERENCES Users(id_user);
+    id_sold INTEGER,
+    FOREIGN KEY (id_users) REFERENCES Users(id_users)
+    FOREIGN KEY (id_sold) REFERENCES Sold(id_sold)
 );
 
-INSERT INTO Cart(id_sold, id_user, price_products, date_cart, id_sold)
-    VALUES  (4000, 100, 12-02-2025, NULL),
-            (4001, 101, 12-02-2025, NULL),
-            (4002, 102, 12-02-2025, NULL),
-            (4003, 103, 12-02-2025, NULL);
+INSERT INTO Cart(id_cart, id_users, price_products, date_cart, id_sold)
+    VALUES  (10 , 1, NULL, NULL, NULL),
+            (11 , 2, NULL, NULL, NULL),
+            (12 , 3, NULL, NULL, NULL),
+            (13 , 4, NULL, NULL, NULL);

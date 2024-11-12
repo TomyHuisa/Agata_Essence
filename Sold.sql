@@ -3,4 +3,4 @@ CREATE TABLE Sold (
 );
 
 INSERT INTO Sold(id_sold)
-    VALUES  (0);
+    VALUES  (0)
